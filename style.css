@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    background: #0f0f0f;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    overflow-x: hidden;
+}
+
+.app {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px 16px 40px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+}
+
+.controls select,
+.controls button {
+    height: 52px;
+    border: none;
+    border-radius: 14px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.controls select {
+    width: 110px;
+    text-align: center;
+}
+
+.controls button {
+    flex: 1;
+    cursor: pointer;
+}
+
+.stats {
+    display: flex;
+    gap: 12px;
+}
+
+.stat-card {
+    flex: 1;
+    background: #1b1b1b;
+    border-radius: 14px;
+    padding: 14px;
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 6px;
+}
+
+#timer,
+#moves {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.loading {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 18px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#boardWrapper {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#board {
+    width: min(92vw, 600px);
+    height: min(92vw, 600px);
+
+    display: grid;
+
+    background: #222;
+    border-radius: 16px;
+    overflow: hidden;
+
+    touch-action: none;
+    user-select: none;
+}
+
+.tile {
+    border: 1px solid rgba(255,255,255,0.08);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    transition:
+        transform .15s ease,
+        opacity .15s ease;
+}
+
+.tile:active {
+    transform: scale(0.96);
+}
+
+.tile.dragging {
+    opacity: .6;
+}
+
+.tile.empty {
+    background: #111;
+    border: 1px dashed #333;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0,0,0,.75);
+
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 340px;
+
+    background: #1b1b1b;
+
+    border-radius: 20px;
+
+    padding: 24px;
+
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-bottom: 16px;
+}
+
+.modal-content p {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.modal-content button {
+    width: 100%;
+    height: 52px;
+
+    margin-top: 12px;
+
+    border: none;
+    border-radius: 14px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .controls {
+        flex-direction: row;
+    }
+
+    .controls select {
+        width: 95px;
+    }
+
+    .controls button {
+        font-size: 16px;
+    }
+
+}
